@@ -61,9 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
 
           <div class="mb-3">
-          <label for="telefono" class="form-label">Teléfono</label>
-          <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
-        </div>
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+          </div>
+
 
 
           <div class="mb-3">
@@ -120,24 +121,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <script>
-  document.querySelector("form").addEventListener("submit", function (e) {
-    const telInput = document.getElementById("telefono");
-    let numero = telInput.value.trim();
+// 🟦 Formateo en vivo mientras escribe
+document.getElementById('telefono').addEventListener('input', function(e) {
+  let valor = e.target.value.replace(/\D/g, ''); // Eliminar no numéricos
+  if (valor.startsWith('56')) {
+    valor = valor.slice(2); // Eliminar doble 56 si lo puso manual
+  }
+  if (valor.startsWith('9')) {
+    valor = valor.slice(1); // Eliminar 9 si ya está después del 56
+  }
 
-    // Remover todo lo que no sea dígito
-    numero = numero.replace(/\D/g, "");
+  // Limitar máximo 8 dígitos después del 9
+  valor = valor.substring(0, 8);
 
-    // Si empieza con 56 lo dejamos, si no, lo agregamos
-    if (!numero.startsWith("56")) {
-      numero = "56" + numero;
-    }
+  // Reconstruir formato +56 9 XXXX XXXX
+  e.target.value = `+56 9 ${valor.slice(0, 4)} ${valor.slice(4, 8)}`.trim();
+});
 
-    // Formatear como +569XXXXXXXX
-    numero = "+" + numero;
+// 🟦 Limpieza antes de enviar el formulario
+document.querySelector("form").addEventListener("submit", function (e) {
+  const telInput = document.getElementById("telefono");
+  let numero = telInput.value.replace(/\D/g, ""); // solo dígitos
 
-    telInput.value = numero;
-  });
+  // Asegurar prefijo +56
+  if (!numero.startsWith("56")) {
+    numero = "56" + numero;
+  }
+
+  // Resultado final: +569XXXXXXXX
+  telInput.value = "+" + numero;
+});
 </script>
+
 
 </body>
 </html>
