@@ -61,9 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
 
           <div class="mb-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
-          </div>
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+        </div>
+
 
           <div class="mb-3">
             <label for="empresa" class="form-label">Empresa (opcional)</label>
@@ -90,6 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 </div>
 
+<?php if (!empty($exito)): ?>
+  <div class="alert alert-success text-center fw-semibold">✅ Tu mensaje ha sido enviado correctamente.</div>
+<?php elseif (!empty($error)): ?>
+  <div class="alert alert-danger text-center fw-semibold"><?= $error ?></div>
+<?php endif; ?>
 
 <div id="footer-container"></div>
 
@@ -110,6 +116,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .then(data => {
       document.getElementById("footer-container").innerHTML = data;
     });
+</script>
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    const telInput = document.getElementById("telefono");
+    let numero = telInput.value.trim();
+
+    // Remover todo lo que no sea dígito
+    numero = numero.replace(/\D/g, "");
+
+    // Si empieza con 56 lo dejamos, si no, lo agregamos
+    if (!numero.startsWith("56")) {
+      numero = "56" + numero;
+    }
+
+    // Formatear como +569XXXXXXXX
+    numero = "+" + numero;
+
+    telInput.value = numero;
+  });
 </script>
 
 </body>
