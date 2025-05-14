@@ -147,9 +147,9 @@
       Diseñamos solu<span class="text-blue">ciones para tu negocio</span>
     </h2>
     <p class="lead mb-5 font-semibold">
-      En Kuimera Studios desarrollamos programas a medida para ventas, gimnasios, gestión de clientes, asistencia, reportes y mucho más.<br>
-      Nuestra misión es digitalizar y optimizar tu negocio con tecnología eficaz, moderna y escalable.
-    </p>
+      En Kuimera Studios desarrollamos sistemas personalizados para ventas, gestión de clientes, gimnasios, asistencia, reportes y más.
+      Somos una tripulación de amigos unida por la pasión de resolver problemas reales que enfrentan las empresas todos los días.
+      Unimos desarrollo y diseño para ofrecerte herramientas eficaces, modernas y escalables.
 
     <!-- Espacio reservado para video -->
     <div class="video-box-placeholder">
@@ -247,7 +247,7 @@
 
 
 
-  
+<div id="footer-container"></div>
  <!-------------------------------------------------------------- Fin del contenido HTML contenido  -------------------------------------------------------------------------------------------->
 
 
@@ -268,6 +268,13 @@
         document.getElementById('header').innerHTML = html;
       });
   </script>
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
 
 </body>
 </html>

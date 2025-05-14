@@ -182,25 +182,26 @@ body, .site-header, .site-header a, .mini-header {
   text-align: center;
 }
 
-/* ✅ Cara frontal azul sólida */
+/* ✅ Cara frontal blanca con texto negro */
 .slider-flip-cards .flip-card-front {
-  background-color: #2b3ac0;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
 }
 
-/* ✅ Cara trasera azul más oscura */
+/* ✅ Cara trasera azul con texto blanco */
 .slider-flip-cards .flip-card-back {
-  background-color: #1e2a8f;
-  color: white;
+  background-color: #0564f3;
+  color: #ffffff;
   transform: rotateY(180deg);
 }
 
-/* ✅ Íconos blancos */
+/* ✅ Íconos en el frente en negro */
 .slider-flip-cards .icon-front {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: #000000;
 }
+
 
 
 /* ------------------------------------------------------------------------------- seccion descripcion breve ---------------------------------------------------------------------------------- */
@@ -357,3 +358,34 @@ body, .site-header, .site-header a, .mini-header {
   margin-bottom: 15px;
   color: #ffffff;
 }
+
+
+
+
+
+/* ------------------------------------------------------------------------------- Boton contacto ---------------------------------------------------------------------------------- */
+.btn-kuimera {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Más cuadrado */
+  padding: 0.6rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-kuimera:hover {
+  background-color: #084298;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(36, 74, 245, 0.596);
+}
+
+.contact-form {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* -------------------------------------------------------------------------------  ---------------------------------------------------------------------------------- */
