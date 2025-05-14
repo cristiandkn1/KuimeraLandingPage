@@ -528,3 +528,9 @@ body, .site-header, .site-header a, .mini-header {
   margin: 1rem auto 0;
   border-radius: 2px;
 }
+
+
+.footer-column {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
