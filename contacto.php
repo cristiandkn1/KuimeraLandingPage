@@ -1,3 +1,29 @@
+
+<?php
+require_once 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $nombre = $_POST['nombre'];
+  $correo = $_POST['correo'];
+  $telefono = $_POST['telefono'];
+  $empresa = $_POST['empresa'];
+  $asunto = $_POST['asunto'];
+  $mensaje = $_POST['mensaje'];
+
+  $stmt = $conn->prepare("INSERT INTO contacto (nombre, email, asunto, mensaje) VALUES (?, ?, ?, ?)");
+  $stmt->bind_param("ssss", $nombre, $correo, $asunto, $mensaje);
+
+  if ($stmt->execute()) {
+    $exito = true;
+  } else {
+    $error = "Error al guardar el mensaje: " . $conn->error;
+  }
+
+  $stmt->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
