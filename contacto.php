@@ -1,3 +1,29 @@
+
+<?php
+require_once 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $nombre = $_POST['nombre'];
+  $correo = $_POST['correo'];
+  $telefono = $_POST['telefono'];
+  $empresa = $_POST['empresa'];
+  $asunto = $_POST['asunto'];
+  $mensaje = $_POST['mensaje'];
+
+  $stmt = $conn->prepare("INSERT INTO contacto (nombre, email, asunto, mensaje) VALUES (?, ?, ?, ?)");
+  $stmt->bind_param("ssss", $nombre, $correo, $asunto, $mensaje);
+
+  if ($stmt->execute()) {
+    $exito = true;
+  } else {
+    $error = "Error al guardar el mensaje: " . $conn->error;
+  }
+
+  $stmt->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,6 +65,8 @@
             <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
           </div>
 
+
+
           <div class="mb-3">
             <label for="empresa" class="form-label">Empresa (opcional)</label>
             <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Ej: Mi Empresa SA">
@@ -64,12 +92,19 @@
   </div>
 </div>
 
+<?php if (!empty($exito)): ?>
+  <div class="alert alert-success text-center fw-semibold">✅ Tu mensaje ha sido enviado correctamente.</div>
+<?php elseif (!empty($error)): ?>
+  <div class="alert alert-danger text-center fw-semibold"><?= $error ?></div>
+<?php endif; ?>
+
 
 <div id="footer-container"></div>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
   fetch('header.html')
@@ -85,6 +120,60 @@
       document.getElementById("footer-container").innerHTML = data;
     });
 </script>
+
+<?php if (!empty($exito)): ?>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Mensaje enviado',
+      text: 'Tu mensaje ha sido enviado correctamente ✅',
+      confirmButtonColor: '#0d6efd'
+    });
+  </script>
+<?php elseif (!empty($error)): ?>
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: '¡Ups!',
+      text: '<?= $error ?>',
+      confirmButtonColor: '#dc3545'
+    });
+  </script>
+<?php endif; ?>
+
+<script>
+// 🟦 Formateo en vivo mientras escribe
+document.getElementById('telefono').addEventListener('input', function(e) {
+  let valor = e.target.value.replace(/\D/g, ''); // Eliminar no numéricos
+  if (valor.startsWith('56')) {
+    valor = valor.slice(2); // Eliminar doble 56 si lo puso manual
+  }
+  if (valor.startsWith('9')) {
+    valor = valor.slice(1); // Eliminar 9 si ya está después del 56
+  }
+
+  // Limitar máximo 8 dígitos después del 9
+  valor = valor.substring(0, 8);
+
+  // Reconstruir formato +56 9 XXXX XXXX
+  e.target.value = `+56 9 ${valor.slice(0, 4)} ${valor.slice(4, 8)}`.trim();
+});
+
+// 🟦 Limpieza antes de enviar el formulario
+document.querySelector("form").addEventListener("submit", function (e) {
+  const telInput = document.getElementById("telefono");
+  let numero = telInput.value.replace(/\D/g, ""); // solo dígitos
+
+  // Asegurar prefijo +56
+  if (!numero.startsWith("56")) {
+    numero = "56" + numero;
+  }
+
+  // Resultado final: +569XXXXXXXX
+  telInput.value = "+" + numero;
+});
+</script>
+
 
 </body>
 </html>
