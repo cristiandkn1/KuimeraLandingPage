@@ -26,7 +26,7 @@ dots.forEach(dot => {
 });
 
 function startAutoSlide() {
-  interval = setInterval(nextTestimonial, 3000);
+  interval = setInterval(nextTestimonial, 3500);
 }
 
 function resetInterval() {
