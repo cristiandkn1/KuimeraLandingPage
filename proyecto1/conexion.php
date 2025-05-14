@@ -1,18 +1,12 @@
 <?php
-// Datos de conexión al hosting
 $host = "localhost";
-$usuario = "cku109429_cku109429";
-$contrasena = "kuikui2024";
-$base_datos = "cku109429_kuimera";
+$usuario = "root";
+$clave = ""; // Cambia si tienes clave en MySQL
+$bd = "misproyectos"; // Cambia esto por el nombre real de tu base de datos
 
-// Crear conexión
-$conn = new mysqli($host, $usuario, $contrasena, $base_datos);
+$conn = new mysqli($host, $usuario, $clave, $bd);
 
-// Verificar conexión
 if ($conn->connect_error) {
-    die("❌ Error de conexión: " . $conn->connect_error);
+    die("Error de conexión: " . $conn->connect_error);
 }
-
-// Establecer conjunto de caracteres
-$conn->set_charset("utf8mb4");
 ?>
