@@ -1,4 +1,3 @@
-
 <?php
 require_once 'conexion.php';
 
@@ -10,11 +9,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $asunto = $_POST['asunto'];
   $mensaje = $_POST['mensaje'];
 
+  // Guardar en base de datos
   $stmt = $conn->prepare("INSERT INTO contacto (nombre, email, asunto, mensaje) VALUES (?, ?, ?, ?)");
   $stmt->bind_param("ssss", $nombre, $correo, $asunto, $mensaje);
 
   if ($stmt->execute()) {
     $exito = true;
+
+    // Enviar correo
+    $destinatario = "estudiokuimera@gmail.com";
+    $titulo = "Nuevo mensaje desde Kuimera.cl";
+    $contenido = "
+      Nombre: $nombre\n
+      Correo: $correo\n
+      Teléfono: $telefono\n
+      Empresa: $empresa\n
+      Asunto: $asunto\n
+      Mensaje:\n$mensaje
+    ";
+    $cabeceras = "From: $correo\r\n" .
+                 "Reply-To: $correo\r\n" .
+                 "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail($destinatario, $titulo, $contenido, $cabeceras);
+
   } else {
     $error = "Error al guardar el mensaje: " . $conn->error;
   }
@@ -22,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $stmt->close();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
