@@ -117,6 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       document.getElementById("footer-container").innerHTML = data;
     });
 </script>
+
+
 <script>
   document.querySelector("form").addEventListener("submit", function (e) {
     const telInput = document.getElementById("telefono");
