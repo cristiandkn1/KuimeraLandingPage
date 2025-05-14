@@ -98,11 +98,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="alert alert-danger text-center fw-semibold"><?= $error ?></div>
 <?php endif; ?>
 
+
 <div id="footer-container"></div>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
   fetch('header.html')
@@ -119,6 +121,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     });
 </script>
 
+<?php if (!empty($exito)): ?>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Mensaje enviado',
+      text: 'Tu mensaje ha sido enviado correctamente ✅',
+      confirmButtonColor: '#0d6efd'
+    });
+  </script>
+<?php elseif (!empty($error)): ?>
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: '¡Ups!',
+      text: '<?= $error ?>',
+      confirmButtonColor: '#dc3545'
+    });
+  </script>
+<?php endif; ?>
 
 <script>
 // 🟦 Formateo en vivo mientras escribe
