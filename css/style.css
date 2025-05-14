@@ -15,7 +15,7 @@ body {
 /* ----------------------------------------------------------------- Mini Header de Contacto ----------------------------------------------------------------------------------------- */
 /* Mini Header de Contacto */
 .mini-header {
-  background-color: #2b2dc0;
+  background-color: #171731;
   font-size: 0.9rem;
   color: #ffffff; /* rojo vino / rojo oscuro */
   font-family: 'Poppins', sans-serif;
@@ -69,7 +69,7 @@ body, .site-header, .site-header a, .mini-header {
   height: 2px;
   left: 0;
   bottom: -4px;
-  background-color: #4d5fff;
+  background-color: #171731;
   transition: width 0.3s ease;
 }
 
@@ -121,7 +121,7 @@ body, .site-header, .site-header a, .mini-header {
 }
 
 .hero-banner .btn-primary {
-  background-color: #2b3ac0;
+  background-color: #171731;
   border: none;
   padding: 12px 32px;            /* Igual altura y ancho */
   font-size: 1rem;
@@ -190,12 +190,12 @@ body, .site-header, .site-header a, .mini-header {
 /* ✅ Cara frontal blanca con texto negro */
 .slider-flip-cards .flip-card-front {
   background-color: #ffffff;
-  color: #000000;
+  color: #171731;
 }
 
 /* ✅ Cara trasera azul con texto blanco */
 .slider-flip-cards .flip-card-back {
-  background-color: #0564f3;
+  background-color: #171731;
   color: #ffffff;
   transform: rotateY(180deg);
 }
@@ -204,7 +204,7 @@ body, .site-header, .site-header a, .mini-header {
 .slider-flip-cards .icon-front {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  color: #000000;
+  color: #171731;
 }
 
 
@@ -220,7 +220,7 @@ body, .site-header, .site-header a, .mini-header {
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #000;
+  color: #171731;
 }
 
 .section-title .text-blue {
