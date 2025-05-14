@@ -85,10 +85,7 @@ body, .site-header, .site-header a, .mini-header {
 
 
 
-
 /* ------------------------------------------------------------------------------- Foto debajo del header ---------------------------------------------------------------------------------- */
-
-
 .hero-banner {
   max-height: 550px;
   overflow: hidden;
@@ -103,17 +100,20 @@ body, .site-header, .site-header a, .mini-header {
 
 .hero-overlay {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 1.2s ease both;
 }
 
 .hero-title {
   font-size: 2.8rem;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
+  animation: fadeInUp 1.4s ease both;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   font-weight: 400;
+  animation: fadeInUp 1.6s ease both;
 }
 
 .carousel-caption {
@@ -123,15 +123,16 @@ body, .site-header, .site-header a, .mini-header {
 .hero-banner .btn-primary {
   background-color: #171731;
   border: none;
-  padding: 12px 32px;            /* Igual altura y ancho */
+  padding: 12px 32px;
   font-size: 1rem;
   border-radius: 7px;
   transition: all 0.3s ease;
-  min-width: 180px;              /* Fuerza mismo ancho mínimo */
-  height: 48px;                  /* Fuerza misma altura */
+  min-width: 180px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInUp 1.8s ease both;
 }
 
 .hero-banner .btn-primary:hover {
@@ -139,6 +140,66 @@ body, .site-header, .site-header a, .mini-header {
   transform: scale(1.05);
 }
 
+/* Animación usada para los elementos */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Transiciones personalizadas para los slides */
+.carousel-item {
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.slide-fade-up .carousel-caption {
+  animation: fadeUp 1s ease forwards;
+}
+
+.slide-slide-left .carousel-caption {
+  animation: slideLeft 1s ease forwards;
+}
+
+.slide-zoom-in .carousel-caption {
+  animation: zoomIn 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 
 

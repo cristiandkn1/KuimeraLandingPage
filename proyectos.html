@@ -13,6 +13,7 @@
       color: white;
       font-family: 'Poppins', sans-serif;
     }
+
     .maintenance {
       height: 100vh;
       display: flex;
@@ -21,29 +22,124 @@
       flex-direction: column;
       text-align: center;
     }
+
+    .maintenance i {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #0d6efd;
+      animation: bounceIcon 2s infinite;
+    }
+
     .maintenance h1 {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUpText 1.2s ease-out 0.3s forwards;
     }
+
     .maintenance p {
       font-size: 1.2rem;
       color: #ccc;
+      opacity: 0;
+      animation: fadeUpText 1.4s ease-out 0.6s forwards;
     }
-    .maintenance i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #0d6efd;
+
+    @keyframes bounceIcon {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-18px);
+      }
+      60% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes fadeUpText {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="maintenance">
-    <i class="fas fa-tools"></i>
-    <h1>Estamos trabajando en esta sección</h1>
+    <i class="fas fa-tools glowing-icon"></i>
+  <h1 class="glowing-text">Estamos trabajando en esta sección</h1>
     <p>Muy pronto podrás explorar todos nuestros proyectos 💻</p>
+     <a href="index.html" class="btn-back mt-4">Volver al inicio</a>
   </div>
+<style>
+  .btn-back {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpBtn 1.2s ease-out 1s forwards;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
 
+  .btn-back:hover {
+    background-color: #084298;
+    transform: translateY(-3px) scale(1.03);
+  }
+
+  @keyframes fadeUpBtn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+
+<style>
+  .glowing-icon {
+    animation: glow-icon 2s ease-in-out infinite alternate;
+  }
+
+  .glowing-text {
+    animation: glow-text 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow-icon {
+    from {
+      text-shadow: 0 0 7px #0d6efd, 0 0 10px #0d6efd;
+    }
+    to {
+      text-shadow: 0 0 17px #0d6efd, 0 0 25px #0d6efd;
+    }
+  }
+
+  @keyframes glow-text {
+    from {
+      text-shadow: 0 0 4px #ffffff;
+    }
+    to {
+      text-shadow: 0 0 16px #ffffff;
+    }
+  }
+</style>
 </body>
 </html>

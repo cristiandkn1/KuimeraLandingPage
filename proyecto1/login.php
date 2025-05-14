@@ -41,6 +41,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Login Retro</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+  
+<a href="../index.html" style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+  <img 
+    src="../img/logo.png" 
+    alt="Kuimera Studios" 
+    class="logo-animado"
+    style="width: 200px; height: auto; background-color: rgba(231, 231, 231, 0.51); padding: 10px; border: 1px solid white; border-radius: 5px;">
+</a>
+
+<style>
+  .logo-animado {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .logo-animado:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+</style>
+
+
+
+
+
+
   <style>
     body {
       margin: 0;
