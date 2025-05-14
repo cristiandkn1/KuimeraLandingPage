@@ -1,3 +1,17 @@
+/* ----------------------------------------------------------------- Fondo Body ----------------------------------------------------------------------------------------- */
+
+body {
+  background-image: url('img/fondo.jpg'); /* Asegúrate de que la ruta sea correcta */
+  background-size: cover;                 /* Cubre todo el body */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;           /* Se mantiene fijo al hacer scroll */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 /* ----------------------------------------------------------------- Mini Header de Contacto ----------------------------------------------------------------------------------------- */
 /* Mini Header de Contacto */
 .mini-header {
@@ -124,27 +138,23 @@ body, .site-header, .site-header a, .mini-header {
 
 
 
-
 /* ------------------------------------------------------------------------------- Cartas debajo del slider ---------------------------------------------------------------------------------- */
-
-
-/* Sección de tarjetas flotantes sobre el slider */
-.flip-cards-section {
+.slider-flip-cards {
   text-align: center;
   margin-top: -120px;
   padding-top: 100px;
   padding-bottom: 60px;
   position: relative;
   z-index: 2;
-  background: transparent; /* ✅ ahora es completamente transparente */
+  background: transparent;
 }
 
-.flip-card {
+.slider-flip-cards .flip-card {
   background-color: transparent;
   perspective: 1000px;
 }
 
-.flip-card-inner {
+.slider-flip-cards .flip-card-inner {
   position: relative;
   width: 100%;
   height: 250px;
@@ -152,43 +162,44 @@ body, .site-header, .site-header a, .mini-header {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.slider-flip-cards .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.slider-flip-cards .flip-card-front,
+.slider-flip-cards .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 15px;
   padding: 30px 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.flip-card-front {
-  background: rgb(255, 255, 255); /* Puedes ajustar la opacidad si quieres más transparencia */
-  color: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.flip-card-back {
-  background: #2b35c0;
+/* ✅ Cara frontal azul sólida */
+.slider-flip-cards .flip-card-front {
+  background-color: #2b3ac0;
+  color: white;
+}
+
+/* ✅ Cara trasera azul más oscura */
+.slider-flip-cards .flip-card-back {
+  background-color: #1e2a8f;
   color: white;
   transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.icon-front {
+/* ✅ Íconos blancos */
+.slider-flip-cards .icon-front {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  color: #2b3ac0;
+  color: #ffffff;
 }
 
 
@@ -231,4 +242,118 @@ body, .site-header, .site-header a, .mini-header {
   font-size: 1.1rem;
   color: #888;
   font-style: italic;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------- Proyectos ---------------------------------------------------------------------------------- */
+
+/* Fondo visible como imagen HTML */
+.featured-projects-section {
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+/* Imagen de fondo como elemento HTML */
+.featured-projects-section .bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay azul transparente */
+.featured-projects-section .blue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 109, 253, 0.432);
+  z-index: 1;
+}
+
+/* Contenido encima del fondo y overlay */
+.featured-projects-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flip Cards */
+.featured-projects-section .flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.featured-projects-section .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.featured-projects-section .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.featured-projects-section .flip-card-front,
+.featured-projects-section .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  padding: 30px 20px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  color: white;
+}
+
+/* Cara frontal */
+.featured-projects-section .flip-card-front {
+  background-color: rgba(13, 109, 253, 0.15);
+  z-index: 2;
+}
+
+/* Cara trasera más opaca para buena legibilidad */
+.featured-projects-section .flip-card-back {
+  background-color: rgba(13, 109, 253, 0.178);
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Tipografía y espaciado */
+.featured-projects-section .flip-card-front h4,
+.featured-projects-section .flip-card-back h4 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.featured-projects-section .flip-card-back p {
+  max-width: 90%;
+  font-size: 0.95rem;
+  color: white;
+}
+
+.featured-projects-section .icon-front {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #ffffff;
 }
