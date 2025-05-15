@@ -5,43 +5,37 @@
   <span><i class="fas fa-envelope me-1"></i> estudiokuimera@gmail.com</span> &nbsp;&nbsp;
   <span><i class="fas fa-map-marker-alt me-1"></i> Copiapo Atacama, Chile</span>
 </div>
-
 <style>
-  /* 馃寪 Ajustes responsivos para el mini-header */
-.mini-header {
-  font-size: 1rem; /* Tama帽o base en pantallas normales */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
+  /* 🌐 Ajustes responsivos para el mini-header */
 @media (max-width: 576px) {
   .mini-header {
-    font-size: 0.85rem; /* M谩s peque帽o en m贸vil */
-    flex-direction: column;
-    text-align: center;
-    white-space: normal;
-    padding: 10px 12px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    line-height: 1.1; /* ✅ Más compacto */
   }
 
   .mini-header span {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 1px; /* 🔽 Menos separación entre líneas */
+  }
+
+  .mini-header span:last-child {
+    margin-bottom: 0; /* 🔚 Elimina margen en el último */
   }
 }
+
 @media (max-width: 576px) {
   .navbar .navbar-brand {
-    margin-left: -30px; /* 馃攧 Ajusta este valor seg煤n lo que necesites */
+    margin-left: -30px; /* 🔄 Ajusta este valor según lo que necesites */
   }
 }
 
 </style>
 
-
 <!-- Navbar Principal -->
 <nav class="navbar navbar-expand-lg site-header px-4">
   <div class="container-fluid">
-<a class="navbar-brand" href="index.html">
+<a class="navbar-brand" href="/">
   <img src="img/logo.png" alt="Kuimera Studios" style="height: 40px;">
 </a>
     <!-- Bot贸n hamburguesa para m贸viles -->
@@ -59,7 +53,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/proyectos">
+<a class="nav-link" href="/proyectos">
       <i class="fas fa-project-diagram me-1"></i> Proyectos
     </a>
   </li>

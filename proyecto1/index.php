@@ -145,13 +145,8 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 include 'navbar.php';
 ?>
 
-
-</style>
-
-
-
-  <div class="text-center my-4 d-flex flex-wrap justify-content-center gap-2">
-    <!-- Botón Agregar Empresa -->
+<div class="text-center my-4 d-flex flex-wrap justify-content-center gap-2">
+  <!-- Botón Agregar Empresa -->
   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpresa">
     <i class="fas fa-plus"></i> Agregar Empresa
   </button>
@@ -162,8 +157,6 @@ include 'navbar.php';
     <i class="fas fa-server"></i> Hostings
   </button>
 </div>
-</div>
-
 
 
 
@@ -476,7 +469,7 @@ include 'navbar.php';
 <!-- Modal Agregar Empresa -->
 <div class="modal fade" id="modalAgregarEmpresa" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form action="agregar_empresa.php" method="POST" class="modal-content">
+    <form action="/proyecto1/agregar_empresa.php" method="POST" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modalLabel"><i class="fas fa-building"></i> Agregar Empresa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -651,7 +644,7 @@ include 'navbar.php';
 
 <div class="modal fade" id="modalAgregarHosting" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
-    <form action="agregar_hosting.php" method="POST" class="modal-content">
+    <form action="/proyecto1/agregar_hosting.php" method="POST" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"><i class="fas fa-server"></i> Agregar Hosting</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -956,6 +949,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('[data-bs-target="#modalAgregarEmpresa"]');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        console.log("🟢 Se hizo clic en el botón de abrir modal");
+      });
+    } else {
+      console.log("🔴 No se encontró el botón con data-bs-target");
+    }
+  });
 </script>
 
 

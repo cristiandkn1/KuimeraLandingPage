@@ -1,9 +1,9 @@
 <?php
-// Datos de conexión
+// Datos de conexión al hosting
 $host = "localhost";
-$usuario = "root";
-$contrasena = "";
-$base_datos = "kuimera";
+$usuario = "cku109429_cku109429";
+$contrasena = "kuikui2025";
+$base_datos = "cku109429_kuimera";
 
 // Crear conexión
 $conn = new mysqli($host, $usuario, $contrasena, $base_datos);
