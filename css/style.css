@@ -201,6 +201,42 @@ body, .site-header, .site-header a, .mini-header {
   }
 }
 
+@media (max-width: 576px) {
+  .hero-banner {
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-banner img {
+    height: 420px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+
+  .carousel-caption {
+    bottom: 12%;
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-banner .btn-primary {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    min-width: unset;
+    height: auto;
+  }
+}
+
+
 
 
 

@@ -6,6 +6,37 @@
   <span><i class="fas fa-map-marker-alt me-1"></i> Copiapo Atacama, Chile</span>
 </div>
 
+<style>
+  /* 🌐 Ajustes responsivos para el mini-header */
+.mini-header {
+  font-size: 1rem; /* Tamaño base en pantallas normales */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 576px) {
+  .mini-header {
+    font-size: 0.85rem; /* Más pequeño en móvil */
+    flex-direction: column;
+    text-align: center;
+    white-space: normal;
+    padding: 10px 12px;
+  }
+
+  .mini-header span {
+    display: block;
+    margin-bottom: 6px;
+  }
+}
+@media (max-width: 576px) {
+  .navbar .navbar-brand {
+    margin-left: -30px; /* 🔄 Ajusta este valor según lo que necesites */
+  }
+}
+
+</style>
+
 
 <!-- Navbar Principal -->
 <nav class="navbar navbar-expand-lg site-header px-4">
@@ -22,29 +53,28 @@
     <!-- Links del menú -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">
-            <i class="fas fa-home me-1"></i> Inicio
-          </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="proyectos.html">
-            <i class="fas fa-project-diagram me-1"></i> Proyectos
-        </a>
-        </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/">
+      <i class="fas fa-home me-1"></i> Inicio
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/proyectos">
+      <i class="fas fa-project-diagram me-1"></i> Proyectos
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contacto">
+      <i class="fas fa-envelope me-1"></i> Contacto
+    </a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" href="/#nosotros">
+    <i class="fas fa-user-friends me-1"></i> Nosotros
+  </a>
+</li>
+</ul>
 
-        <li class="nav-item">
-          <a class="nav-link" href="contacto.php">
-            <i class="fas fa-envelope me-1"></i> Contacto
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#nosotros">
-            <i class="fas fa-user-friends me-1"></i> Nosotros
-          </a>
-        </li>
-
-      </ul>
     </div>
   </div>
 </nav>

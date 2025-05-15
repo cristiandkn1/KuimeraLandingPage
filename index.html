@@ -23,6 +23,7 @@
   <!----------------------------------------------------------------- CONTENIDO PRINCIPAL(Solo HTML) ------------------------------------------------------------------------------------------>
 	<div id="header"></div>
 
+
 <section id="heroCarousel" class="carousel slide hero-banner" data-bs-ride="carousel">
   <div class="carousel-inner">
 
@@ -248,64 +249,69 @@
 
 
   <!-------------------------------------------------------------------------------- Nuestras fotos ------------------------------------------------------------------------------------------>
+<style>
+  .testimonial-card {
+  cursor: pointer;
+}
 
+</style>
 <section class="testimonial-section" id="nosotros">
-    <div class="section-title">
-  <p>Fundadores y Socios</p>
-  <h2>¡Conoce un poco más<br />de <strong>NOSOTROS</strong>!</h2>
-  <div class="divider"></div>
-</div>
+  <div class="section-title">
+    <p>Fundadores y Socios</p>
+    <h2>¡Conoce un poco más<br />de <strong>NOSOTROS</strong>!</h2>
+    <div class="divider"></div>
+  </div>
 
-    <div class="testimonials">
-      <div class="testimonial-card">
-        <p class="testimonial-text">
-          Soy Cristian, estudiante de Ingeniería en Informática, apasionado por el ejercicio y la programación. 
-          Encargado principal del desarrollo en Kuimera Studios, donde lidero proyectos y transformo ideas en soluciones tecnológicas eficientes.
-        </p>
-        <div class="testimonial-profile">
-          <img src="img/cristian.jpeg" alt="Cristian Vega" />
-          <div>
-            <h3>Cristian Vega</h3>
-            <span>Desarrollador Principal</span>
-          </div>
+  <div class="testimonials">
+    <div class="testimonial-card" data-index="0">
+      <p class="testimonial-text">
+        Soy Cristian, estudiante de Ingeniería en Informática, apasionado por el ejercicio y la programación. 
+        Encargado principal del desarrollo en Kuimera Studios, donde lidero proyectos y transformo ideas en soluciones tecnológicas eficientes.
+      </p>
+      <div class="testimonial-profile">
+        <img src="img/cristian.jpeg" alt="Cristian Vega" />
+        <div>
+          <h3>Cristian Vega</h3>
+          <span>Desarrollador Principal</span>
         </div>
       </div>
+    </div>
 
-      <div class="testimonial-card active">
-        <p class="testimonial-text">
-        Que tal, soy Cristóbal!, estudiante de Ingeniería en Informática, amante de las motos y la aventura. Segundo desarrollador en Kuimera Studios, tambien
-        gestiono los contactos como manager y lidero la ejecución de proyectos, representando al estudio.
-        </p>
-        <div class="testimonial-profile">
-          <img src="img/cristobal.jpeg" alt="Cristobal Lagos" />
-          <div>
-            <h3>Cristobal Lagos</h3>
-            <span>Desarrollador - Manager</span>
-          </div>
+    <div class="testimonial-card active" data-index="1">
+      <p class="testimonial-text">
+        ¡Qué tal! Soy Cristóbal, estudiante de Ingeniería en Informática, amante de las motos y la aventura. Segundo desarrollador en Kuimera Studios. 
+        También gestiono los contactos como manager y lidero la ejecución de proyectos, representando al estudio.
+      </p>
+      <div class="testimonial-profile">
+        <img src="img/cristobal.jpeg" alt="Cristobal Lagos" />
+        <div>
+          <h3>Cristobal Lagos</h3>
+          <span>Desarrollador - Manager</span>
         </div>
       </div>
+    </div>
 
-      <div class="testimonial-card">
-        <p class="testimonial-text">
-        Hola, soy Bania! Soy de la Región de los Ríos y he trabajado con clientes como INJUV y PYMES en crecimiento. 
+    <div class="testimonial-card" data-index="2">
+      <p class="testimonial-text">
+        ¡Hola! Soy Bania, de la Región de los Ríos. He trabajado con clientes como INJUV y PYMES en crecimiento. 
         Amante de los animales y del diseño con propósito, me apasiona ayudar a diferenciar marcas. ¡Junt@s podemos dar vida a tus ideas!
-        </p>
-        <div class="testimonial-profile">
-          <img src="img/bania.jpeg" alt="Bania Pacheco" />
-          <div>
-            <h3>Bania Pacheco</h3>
-            <span>Diseñadora Grafica</span>
-          </div>
+      </p>
+      <div class="testimonial-profile">
+        <img src="img/bania.jpeg" alt="Bania Pacheco" />
+        <div>
+          <h3>Bania Pacheco</h3>
+          <span>Diseñadora Gráfica</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="pagination">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-    </div>
-  </section>
+  <div class="pagination">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</section>
 
 
 
@@ -352,7 +358,9 @@
       document.getElementById("footer-container").innerHTML = data;
     });
 </script>
+
 <script>
+
   document.addEventListener('keydown', function (e) {
     if (e.altKey && e.key.toLowerCase() === 'p') {
       const btn = document.getElementById('admin-access-btn');
@@ -360,13 +368,70 @@
     }
   });
 </script>
+
 <script>
   window.addEventListener("load", function () {
     const myCarousel = document.querySelector('#heroCarousel');
     const carousel = new bootstrap.Carousel(myCarousel, {
-      interval: 5000,   // Cambia cada 5s
-      ride: 'carousel'  // Inicia automáticamente después de cargar
+      interval: 12000,
+      ride: 'carousel'
     });
+
+    // 🛑 Detener el carrusel cuando se hace clic en él
+    myCarousel.addEventListener('click', () => {
+      carousel.pause();
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+
+    function setActive(index) {
+      // Remover clases activas
+      cards.forEach(card => card.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // Activar el seleccionado
+      cards[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    // Evento al hacer clic en las tarjetas
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const index = parseInt(card.dataset.index);
+        setActive(index);
+      });
+    });
+
+    // Ya deberías tener esto para los dots, pero lo dejamos por claridad:
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.index);
+        setActive(index);
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const linkNosotros = document.querySelector('a[href="/#nosotros"]');
+    const section = document.getElementById('nosotros');
+
+    if (linkNosotros && section) {
+      linkNosotros.addEventListener('click', (e) => {
+        e.preventDefault();
+        const offset = 80; // 📦 Ajusta esto si quieres que baje más o menos
+        const top = section.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({
+          top: top,
+          behavior: 'smooth'
+        });
+      });
+    }
   });
 </script>
 

@@ -1,51 +1,4 @@
-<?php
-require_once 'conexion.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $nombre   = $_POST['nombre'];
-  $correo   = $_POST['correo'];
-  $telefono = $_POST['telefono'];
-  $empresa  = $_POST['empresa'];
-  $asunto   = $_POST['asunto'];
-  $mensaje  = $_POST['mensaje'];
-
-  // Validar correo (opcional)
-  if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-    $error = "Correo electrónico no válido.";
-  } else {
-    // Guardar en base de datos
-    $stmt = $conn->prepare("INSERT INTO contacto (nombre, email, telefono, empresa, asunto, mensaje) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $nombre, $correo, $telefono, $empresa, $asunto, $mensaje);
-
-    if ($stmt->execute()) {
-      $exito = true;
-
-      // Enviar correo
-      $destinatario = "estudiokuimera@gmail.com";
-      $titulo = "Nuevo mensaje desde Kuimera.cl";
-      $contenido = "
-Nombre: $nombre
-Correo: $correo
-Teléfono: $telefono
-Empresa: $empresa
-Asunto: $asunto
-Mensaje:
-$mensaje
-      ";
-      $cabeceras = "From: $correo\r\n" .
-                   "Reply-To: $correo\r\n" .
-                   "Content-Type: text/plain; charset=UTF-8\r\n";
-
-      mail($destinatario, $titulo, $contenido, $cabeceras);
-
-    } else {
-      $error = "Error al guardar el mensaje: " . $conn->error;
-    }
-
-    $stmt->close();
-  }
-}
-?>
 
 
 <!DOCTYPE html>
@@ -72,7 +25,7 @@ $mensaje
     <div class="col-md-8">
       <div class="contact-form">
         <h2 class="form-title mb-4 text-primary fw-bold">Contáctanos</h2>
-        <form action="#" method="POST">
+        <form action="enviar_contacto.php" method="POST">
 
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre completo</label>
@@ -145,7 +98,7 @@ $mensaje
     });
 </script>
 
-<?php if (!empty($exito)): ?>
+<?php if (isset($_GET['exito'])): ?>
   <script>
     Swal.fire({
       icon: 'success',
@@ -154,16 +107,17 @@ $mensaje
       confirmButtonColor: '#0d6efd'
     });
   </script>
-<?php elseif (!empty($error)): ?>
+<?php elseif (isset($_GET['error'])): ?>
   <script>
     Swal.fire({
       icon: 'error',
       title: '¡Ups!',
-      text: '<?= $error ?>',
+      text: '<?= htmlspecialchars($_GET['error']) ?>',
       confirmButtonColor: '#dc3545'
     });
   </script>
 <?php endif; ?>
+
 
 <script>
 // 🟦 Formateo en vivo mientras escribe
