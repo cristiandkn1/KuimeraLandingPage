@@ -235,7 +235,38 @@ body, .site-header, .site-header a, .mini-header {
     height: auto;
   }
 }
+@media (max-width: 576px) {
+  .img-logo-hero {
+    object-position: left center;
+    object-fit: cover;
+    height: 420px;
+    width: 100%;
+    display: block;
+  }
+}
 
+@media (max-width: 576px) {
+  .carousel-caption {
+    bottom: 20% !important; /* 🔼 Sube el bloque completo (puedes probar 25%, 30%) */
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .carousel-caption .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .carousel-caption .btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    height: auto;
+  }
+}
 
 
 
