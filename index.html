@@ -280,6 +280,52 @@
     background-position: 0% 50%;
   }
 }
+.testimonials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  border: 2.5px solid transparent; /* El border SIEMPRE está, pero es transparente */
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 32px 24px 48px 24px;  /* MÁS espacio abajo (48px) */
+  width: 320px;
+  min-height: 340px;  /* Ajusta según necesites */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-card.active {
+  border-color: #007bff; /* SOLO cambia el color del borde */
+  box-shadow: 0 6px 32px rgba(50, 150, 255, 0.18);
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.testimonial-profile {
+  display: flex;
+  align-items: center;
+  margin-top: auto; /* Empuja el perfil hacia abajo */
+  gap: 12px;
+}
+
+.testimonial-profile img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
 
 </style>
 <section class="testimonial-section" id="nosotros">
@@ -292,8 +338,7 @@
   <div class="testimonials">
     <div class="testimonial-card" data-index="0">
       <p class="testimonial-text">
-        Soy Cristian, estudiante de Ingeniería en Informática, apasionado por el ejercicio y la programación. 
-        Encargado principal del desarrollo en Kuimera Studios, donde lidero proyectos y transformo ideas en soluciones tecnológicas eficientes.
+        Cristian Vega, estudiante de último año de Ingeniería en Informática y desarrollador principal, lidera el desarrollo técnico de nuestros proyectos, asegurando calidad y eficiencia en cada línea de código.
       </p>
       <div class="testimonial-profile">
         <img src="img/cristian.jpeg" alt="Cristian Vega" />
@@ -306,8 +351,7 @@
 
     <div class="testimonial-card active" data-index="1">
       <p class="testimonial-text">
-        ¡Qué tal! Soy Cristóbal, estudiante de Ingeniería en Informática, amante de las motos y la aventura. Segundo desarrollador en Kuimera Studios. 
-        También gestiono los contactos como manager y lidero la ejecución de proyectos, representando al estudio.
+        Cristóbal Lagos, estudiante de Ingeniería en Informática, se destaca como segundo desarrollador y manager, aportando organización y una visión fresca a nuestros desafíos diarios.
       </p>
       <div class="testimonial-profile">
         <img src="img/cristobal.jpeg" alt="Cristobal Lagos" />
@@ -320,8 +364,7 @@
 
     <div class="testimonial-card" data-index="2">
       <p class="testimonial-text">
-        ¡Hola! Soy Bania, de la Región de los Ríos. He trabajado con clientes como INJUV y PYMES en crecimiento. 
-        Amante de los animales y del diseño con propósito, me apasiona ayudar a diferenciar marcas. ¡Junt@s podemos dar vida a tus ideas!
+        Bania Pacheco, nuestra encargada de diseño gráfico, transforma ideas en experiencias visuales atractivas, aportando creatividad y detalle a la imagen de cada proyecto.
       </p>
       <div class="testimonial-profile">
         <img src="img/bania.jpeg" alt="Bania Pacheco" />

@@ -56,42 +56,72 @@
   <h2 style="color: #171731; font-weight: 700;">Imágenes del Proyecto</h2>
   <p style="color: #171731;">Explora algunas vistas previas de la aplicación en funcionamiento</p>
 </section>
-<!-- Carrusel más pequeño (10% achicado) -->
-<div id="carouselProyecto1" class="carousel slide mx-auto mb-0" data-bs-ride="carousel" style="max-width: 64.8%; margin-bottom: 0;">
-  <div class="carousel-inner shadow overflow-hidden" style="height: 583px;">
-    
-    <!-- Imagen 1 -->
-    <div class="carousel-item active">
-      <img src="img/proyecto1-1.png" class="d-block w-100 h-100" style="object-fit: contain;" alt="Captura 1">
-    </div>
 
-    <!-- Imagen 2 -->
-    <div class="carousel-item">
-      <img src="img/proyecto1-2.png" class="d-block w-100 h-100" style="object-fit: contain;" alt="Captura 2">
-    </div>
 
-    <!-- Imagen 3 -->
-    <div class="carousel-item">
-      <img src="img/proyecto1-3.png" class="d-block w-100 h-100" style="object-fit: contain;" alt="Captura 3">
-    </div>
 
-    <!-- Imagen 4 con fondo dividido -->
-    <div class="carousel-item">
-      <div class="fondo-dividido d-flex justify-content-center align-items-center" style="height: 100%;">
-        <img src="img/proyecto1-4.png" class="img-cuadrada-final" alt="Captura 4">
+<!-- Carrusel Responsive -->
+<div class="carousel-center-viewport">
+  <div class="carousel-wrapper">
+    <div id="carouselProyecto1" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Carrusel Items -->
+        <div class="carousel-item active">
+          <div class="carousel-img-frame">
+            <img src="img/proyecto1-1.png" class="carousel-img" alt="Captura 1">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-frame">
+            <img src="img/proyecto1-2.png" class="carousel-img" alt="Captura 2">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-frame">
+            <img src="img/proyecto1-3.png" class="carousel-img" alt="Captura 3">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-frame">
+            <img src="img/proyecto1-4.png" class="carousel-img" alt="Captura 4">
+          </div>
+        </div>
       </div>
+      <!-- Flecha Izquierda -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyecto1" data-bs-slide="prev">
+        <span class="carrusel-btn">
+          <svg class="flecha-svg" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="15" fill="url(#grad1)" stroke="#fff" stroke-width="2.2"/>
+            <defs>
+              <linearGradient id="grad1" x1="2" y1="30" x2="32" y2="2" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#5bc6ff"/>
+                <stop offset="1" stop-color="#325aaf"/>
+              </linearGradient>
+            </defs>
+            <path d="M18.8 22L13.8 16L18.8 10" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+      <!-- Flecha Derecha -->
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselProyecto1" data-bs-slide="next">
+        <span class="carrusel-btn">
+          <svg class="flecha-svg" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="15" fill="url(#grad2)" stroke="#fff" stroke-width="2.2"/>
+            <defs>
+              <linearGradient id="grad2" x1="2" y1="2" x2="32" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#5bc6ff"/>
+                <stop offset="1" stop-color="#325aaf"/>
+              </linearGradient>
+            </defs>
+            <path d="M13.2 10L18.2 16L13.2 22" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
     </div>
-
   </div>
-
-  <!-- Botones -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyecto1" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselProyecto1" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
 </div>
+
+
+
 
 
 <section class="px-4 text-center" style="background-color: #ffffff; padding: 60px 20px; font-family: 'Poppins', sans-serif; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
@@ -118,29 +148,9 @@
     </p>
 
   </div>
+  
 </section>
 
-
-
-<section class="px-4 text-center" style="background-color: #f9f9fb; padding: 60px 20px; font-family: 'Poppins', sans-serif;">
-  <h3 style="color: #171731; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem;" data-aos="fade-up">
-    ¿Qué beneficios obtendrás con esta aplicación?
-  </h3>
-
-  <div style="max-width: 900px; margin: auto; color: #171731; font-size: 1.15rem; line-height: 1.8; text-align: justify;">
-    <p style="margin-bottom: 1.5rem;" data-aos="fade-up" data-aos-delay="100">
-      Nuestra prioridad es ayudarte a profesionalizar y optimizar tu gimnasio. Con GymManager, podrás ofrecer una experiencia moderna, conectada y organizada tanto para tu equipo como para tus clientes.
-    </p>
-
-    <p style="margin-bottom: 1.5rem;" data-aos="fade-up" data-aos-delay="250">
-      Al personalizar la plataforma con tu <strong>logo, colores, redes sociales y estilo de marca</strong>, tu gimnasio proyectará una imagen más sólida, moderna y confiable. Esto no solo mejora tu reputación, sino que también fortalece el vínculo con tus clientes al brindarles acceso directo a su información, asistencia, rutinas y notificaciones desde cualquier dispositivo.
-    </p>
-
-    <p data-aos="fade-up" data-aos-delay="400">
-      Además, la aplicación es <strong>totalmente adaptable</strong> a las necesidades particulares de cada gimnasio. Ya sea que necesites más control sobre los pagos, asistencia, rutinas o comunicación con clientes, GymManager se ajusta para que gestiones todo desde un solo lugar. Nuestro objetivo es que destaques y que tu gimnasio tenga mayor prestigio, eficiencia y conectividad.
-    </p>
-  </div>
-</section>
 
 
 <!-- Botón subir centrado inferior -->
@@ -170,6 +180,119 @@
   #btnSubir:hover {
     background-color: #2628a9;
   }
+<!--Carrusel-->
+.carousel-center-viewport {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7faff;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 1000px; /* Carrusel mini */
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 0 rgba(58,123,213,0.13);
+  background: #fff;
+}
+
+#carouselProyecto1 .carousel-inner {
+  aspect-ratio: 16/9;
+  width: 100%;
+  background: #f8fafd;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Marco para uniformar todas las imágenes */
+.carousel-img-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 180px; /* Ajusta a tu gusto: más alto si lo deseas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;     /* Todas igual de grandes, nunca deformadas */
+  border-radius: 12px;
+  display: block;
+  background: #fff;
+}
+
+/* Flechas premium, igual que antes */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: none;
+  border: none;
+  padding: 0;
+  opacity: 1;
+  transition: opacity 0.15s;
+}
+.carousel-control-prev { left: 6px; }
+.carousel-control-next { right: 6px; }
+
+.carrusel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  box-shadow: 0 2px 16px 0 rgba(58,123,213,0.13), 0 2px 8px 0 rgba(50,90,175,0.10);
+  background: none;
+  cursor: pointer;
+  transition:
+    box-shadow 0.22s,
+    transform 0.18s,
+    filter 0.17s;
+  position: relative;
+}
+.flecha-svg {
+  width: 46px;
+  height: 46px;
+  display: block;
+  filter: drop-shadow(0 1.5px 4px rgba(80,130,220,0.08));
+  border-radius: 50%;
+  transition: filter 0.2s, box-shadow 0.2s, transform 0.19s;
+}
+.carrusel-btn:hover .flecha-svg,
+.carrusel-btn:focus .flecha-svg {
+  filter: drop-shadow(0 4px 16px #5bc6ff77);
+  transform: scale(1.10) rotate(-6deg);
+  box-shadow: 0 6px 32px 0 rgba(52,130,220,0.21);
+}
+.carrusel-btn:active .flecha-svg {
+  filter: drop-shadow(0 2px 8px #325aaf44);
+  transform: scale(0.97) rotate(0deg);
+}
+
+/* Responsivo: en móviles, más pequeño */
+@media (max-width: 450px) {
+  .carousel-wrapper { max-width: 96vw; }
+  .carousel-img-frame { min-height: 110px; }
+  .carrusel-btn { width: 38px; height: 38px; }
+  .flecha-svg { width: 30px; height: 30px; }
+}
+
+
 </style>
 
 <!-- Footer dinámico -->
