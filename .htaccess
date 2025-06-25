@@ -1,25 +1,31 @@
 RewriteEngine On
+
+# Página por defecto
 DirectoryIndex index.html index.php
+
+# Ocultar listado de carpetas
 Options -Indexes
 
 <IfModule mod_autoindex.c>
     IndexIgnore *
 </IfModule>
 
-# Protege el archivo para que solo GitHub pueda acceder
+# PROTEGER deploy_landing.php solo para GitHub
 <Files "deploy_landing.php">
     Require ip 140.82.112.0/20
     Require ip 185.199.108.0/22
     Require ip 192.30.252.0/22
 </Files>
 
-# Reescritura de URLs limpias
+# URLs limpias para .php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^([^\.]+)$ $1.php [L,QSA]
 
+# Redirigir /index a index.php (opcional)
 RewriteRule ^index$ index.php [L]
 
+# URLs limpias para .html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^([^\.]+)$ $1.html [L,QSA]
