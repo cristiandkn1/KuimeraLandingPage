@@ -10,7 +10,7 @@ Options -Indexes
     IndexIgnore *
 </IfModule>
 
-# PROTEGER deploy_landing.php solo para GitHub
+# PROTEGER deploy_landing.php solo para GitHuba
 <Files "deploy_landing.php">
     Require ip 140.82.112.0/20
     Require ip 185.199.108.0/22
