@@ -1,13 +1,29 @@
 RewriteEngine On
 
-# Ocultar extensi車n .php
+# Mostrar index.html o index.php como p谩gina por defecto
+DirectoryIndex index.html index.php
+
+# Evitar mostrar listado de archivos
+Options -Indexes
+
+<IfModule mod_autoindex.c>
+    IndexIgnore *
+</IfModule>
+
+# Permitir acceso al archivo deploy_landing.php desde cualquier IP (reemplaza por IPs si deseas)
+<Files "deploy_landing.php">
+    Require all granted
+</Files>
+
+# Ocultar extensi贸n .php (permite /contacto en vez de contacto.php)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^([^\.]+)$ $1.php [L]
+RewriteRule ^([^\.]+)$ $1.php [L,QSA]
 
-# Opcional: redireccionar index a /
+# Redireccionar /index a index.php
 RewriteRule ^index$ index.php [L]
-# Opcional: ocultar extensión .html también
+
+# Ocultar extensi贸n .html (permite /proyectos en vez de proyectos.html)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^([^\.]+)$ $1.html [L]
+RewriteRule ^([^\.]+)$ $1.html [L,QSA]
